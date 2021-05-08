@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
-import Card from './../Card/Card';
-import {IArticle} from './../../../Types/IArticle'
+import Card from '../Card/Card';
+import {IArticle} from '../../../Types/IArticle'
 
 interface Props {
     articles : IArticle[]
