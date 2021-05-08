@@ -1,7 +1,8 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 import styled from "styled-components";
 import ListArticles from './../../Molecules/ArticlesList/ArticlesList';
 import dataListArticles from './../../../Data/articles';
+import ModalBasket from './../../Atoms/Modal';
 
 const genDiv = styled.div `
       border-radius: 5px;
@@ -40,14 +41,22 @@ interface Props {
 }
 
 function Layout({}: Props): ReactElement {
+
+    const [showbasket, setShowBasket] = useState(false);
+
     return (
        <Grid>
         <Header>
-            Header
+            <ModalBasket show={showbasket} onClose={() => setShowBasket(false)} />
+            {showbasket === false &&
+                <button onClick={() => setShowBasket(true)}>SHOW BASKET</button>
+            }
         </Header>
+
         <Sidebar>
             Sidebar
         </Sidebar>
+        
         <Content>
             <ListArticles articles={dataListArticles} />
         </Content>
