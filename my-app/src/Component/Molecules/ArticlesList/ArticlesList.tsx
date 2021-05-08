@@ -1,6 +1,17 @@
 import React, { ReactElement } from 'react'
 import Card from '../Card/Card';
 import {IArticle} from '../../../Types/IArticle'
+import styled from 'styled-components';
+
+const FlexRowContainer = styled.div `
+    display : flex;
+    flex-direction : row;
+    flex-wrap : wrap;
+    justify-content : space-evenly;
+    width : 100%;
+    max-height : 100%;
+    overflow-y: scroll;
+`;
 
 interface Props {
     articles : IArticle[]
@@ -8,11 +19,11 @@ interface Props {
 
 function Article({articles}: Props): ReactElement {
     return (
-        <div>
+        <FlexRowContainer>
     {
       articles.map((elem : IArticle) => (<Card article={elem}></Card>))
     }
-    </div>
+    </FlexRowContainer>
     )
 }
 

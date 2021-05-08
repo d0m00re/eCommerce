@@ -3,12 +3,6 @@ import styled from "styled-components";
 import ListArticles from './../../Molecules/ArticlesList/ArticlesList';
 import dataListArticles from './../../../Data/articles';
 
-const MyLayout = styled.main `
-    background-color : red;
-    width : 100vw;
-    height : 100vh;
-`;
-
 const genDiv = styled.div `
       border-radius: 5px;
 `
