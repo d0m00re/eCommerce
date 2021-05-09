@@ -2,6 +2,7 @@ import * as constant from './../constants/Basket';
 import {IArticle, IArticleBasket} from './../../Types/IArticle';
 import { constants } from 'buffer';
 
+import IPayloadIncrDecr from './../../Types/IPayloadIncrDecr';
 
 export const articleAdd = (payload : {article : IArticle, count : number}) : {type : string,
                                                     payload : IArticleBasket} => ({
@@ -10,20 +11,20 @@ export const articleAdd = (payload : {article : IArticle, count : number}) : {ty
 });
 
 // uuid
-export const articleDelete = (uuid : string ) : {type : string, payload : string} => ({
+export const articleDelete = ({uuid} : {uuid : string}) : {type : string, payload : {uuid : string}} => ({
     type : constant.ARTICLE_DELETE,
-    payload : uuid
+    payload : {uuid : uuid}
 });
 
 // uuid + quantity
-export const  articleIncrQuantity = (nb : number) : {type : string, payload : number} => ({
+export const  articleIncrQuantity = (payload : IPayloadIncrDecr) : {type : string, payload : IPayloadIncrDecr} => ({
     type : constant.ARTICLE_INCR_QUANTITY,
-    payload : nb
+    payload : payload
 });
 
-export const articleDecrQuantity = (nb : number) : {type : string, payload : number} => ({
-    type : constant.ARTICLE_INCR_QUANTITY,
-    payload : nb
+export const articleDecrQuantity = (payload : IPayloadIncrDecr) : {type : string, payload : IPayloadIncrDecr} => ({
+    type : constant.ARTICLE_DECR_QUANTITY,
+    payload : payload
 });
 
 export const showBasket = () => ({
@@ -35,7 +36,7 @@ export const showBasket = () => ({
 export const hideBasket = () => ({
     type : constant.HIDE_BASKET,
     payload : null
-})
+});
 
 /*
 export const articleIncrQuantity = () => { ARTICLE_INCR_QUANTITY = 'ARTICLE_INCR_QUANTITY';}

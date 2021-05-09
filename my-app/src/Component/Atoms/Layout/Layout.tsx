@@ -2,7 +2,7 @@ import React, { ReactElement, useEffect, useState } from 'react'
 import styled from "styled-components";
 import ListArticles from './../../Molecules/ArticlesList/ArticlesList';
 import dataListArticles from './../../../Data/articles';
-import ModalBasket from './../../Atoms/Modal';
+import ModalBasket from './../../Molecules/ModalBasket/ModalBasket';
 import {useSelector, useDispatch} from 'react-redux';
 import IReducerBasket from './../../../Types/IReducerBasket';
 import * as actions from './../../../Redux/actions/Basket';
@@ -39,7 +39,7 @@ const Grid = styled.div `
         "Sidebar Content Content Content"
 `;
   
-interface Props {
+interface Props { 
     
 }
 

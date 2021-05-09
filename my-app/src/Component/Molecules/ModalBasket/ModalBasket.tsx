@@ -1,33 +1,34 @@
 import React, { ReactElement, useState, useEffect } from 'react'
 import styled, {keyframes} from "styled-components";
-import IReducerBasket from './../../Types/IReducerBasket';
-import { IArticleBasket } from '../../Types/IArticle';
+import IReducerBasket from './../../../Types/IReducerBasket';
+import { IArticleBasket } from '../../../Types/IArticle';
 
+import ModalListArticle from './ModalListArticle';
+import ModalHeader from './ModalHeader';
+import ModalBottom from './ModalBottom';
 
 // fade
 const fade = keyframes`
   from {
-    background-color: rgba(0, 0, 255, 0);
+    background-color: rgba(30, 20, 58, 0);
   }
 
   to {
-    background-color: rgba(0, 0, 255, 0.78);
+    background-color: rgba(30, 20, 58, 0.8);
 
 }
 `;
 
-// find how to pass props for opacity
-const fade2 = keyframes`
+const fade3 = keyframes`
   from {
-    background-color: rgba(0, 0, 255, 0);
+    o
+    background-color: rgba(30, 20, 58, 0);
   }
-
   to {
-    background-color: rgba(0, 0, 255, 1);
+    background-color: rgba(30, 20, 58, 1);
 
 }
 `;
-
 
 const StyledModalContainer = styled.div` 
     position : absolute;
@@ -53,14 +54,12 @@ const StyledModal = styled.div`
     transform : translate(-50%, -50%);
     background-color : orange;
 
-    animation-name : ${fade2} ;
+    animation-name : ${fade3} ;
     animation-duration : 1.5s ;
     animation-fill-mode: forwards;
 `;
 
-const StyledModalTitle = styled.h4`
-    color : orange;
-`;
+
 
 const StyledImg = styled.img `
     width : 70px;
@@ -76,32 +75,18 @@ const StyledContainerArt = styled.section `
     width : 480px
 `;
 
-function ModalArticle({ basket} : {basket : IArticleBasket}) : ReactElement {
-    return (
-        <>
-            <div>{basket.article.title}</div>
-            <div>count :{basket.count}</div>
-            <button>incr</button>
-            <button>decr</button>
-            <button>delete</button>
-            <StyledImg src= {basket.article.pathImg} alt={basket.article.description}></StyledImg>
-            <div>{basket.article.price}</div>
-        </>
-    );
-};
-
 function Modal({ basket, onClose }: Props): ReactElement {
 
     const Modal = () =>
         <StyledModalContainer>
             <StyledModal>
-                Your product
+                <ModalHeader onClose={onClose} />
                 {
-                    basket.articlesList.map(((_article : IArticleBasket) => <ModalArticle basket={_article}></ModalArticle>))
+                    basket.articlesList.map(((_article : IArticleBasket) => <ModalListArticle key={'art-' + _article.article._uuid} basket={_article}></ModalListArticle>))
                 }
                 <p>Total price : {basket.totalPrice}</p>
-            <button onClick={onClose}>Continue</button>
-            <button onClick={onClose}>Buy</button>
+                <ModalBottom onClose={onClose}/>
+           
 
             </StyledModal>
         </StyledModalContainer>

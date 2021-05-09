@@ -32,7 +32,7 @@ function Card({ article }: Props) {
 
     const addNewArticle = () => {
         console.log('add new article');
-        dispatch(actionBasket.articleAdd({article : article, count : 5}));
+        dispatch(actionBasket.articleAdd({article : article, count : 1}));
     }
 
     /*
