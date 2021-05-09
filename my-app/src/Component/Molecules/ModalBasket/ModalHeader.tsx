@@ -1,24 +1,35 @@
 import React, { ReactElement } from 'react'
 import styled from "styled-components";
 
-import { faHome } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-import {StyledModalTitle} from './../../../Style/general';
+import { StyledModalTitle } from './../../../Style/general';
 
 import Button from './../../Atoms/Button/Button';
 
 interface Props {
-    onClose : () => ({})
+    onClose: () => ({})
 }
 
-function ModalHeader({onClose}: Props): ReactElement {
+let StyledFlexRow = styled.div`
+    display : flex;
+    justify-content : space-between;
+`;
+
+let StyledTitleModal = styled.h2` 
+    color : orange;
+`;
+
+function ModalHeader({ onClose }: Props): ReactElement {
     return (
         <StyledModalTitle>
-            Your product
-            <Button onClick={onClose}>
-                <FontAwesomeIcon icon={faHome} />
-            </Button>
+            <StyledFlexRow>
+                <StyledTitleModal>Your Products:</StyledTitleModal>
+                <Button onClick={onClose} sizeElem='small' form='circle'>
+                    <div style={{width : '20px', height : '20px'}}>
+                    X
+                    </div>
+                </Button>
+            </StyledFlexRow>
+
         </StyledModalTitle>
     )
 }

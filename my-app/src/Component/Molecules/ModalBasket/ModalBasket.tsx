@@ -1,5 +1,5 @@
 import React, { ReactElement, useState, useEffect } from 'react'
-import styled, {keyframes} from "styled-components";
+import styled, { keyframes } from "styled-components";
 import IReducerBasket from './../../../Types/IReducerBasket';
 import { IArticleBasket } from '../../../Types/IArticle';
 
@@ -18,14 +18,14 @@ const fade = keyframes`
 
 }
 `;
+//    background-color: rgba(30, 20, 58, 1);
 
 const fade3 = keyframes`
   from {
-    o
     background-color: rgba(30, 20, 58, 0);
   }
   to {
-    background-color: rgba(30, 20, 58, 1);
+    background-color : #221a4a;
 
 }
 `;
@@ -40,16 +40,17 @@ const StyledModalContainer = styled.div`
     animation-fill-mode: forwards;
 
     z-index : 420;
+
+    background-color : white;
 `
-/*
-width : 200px;
-    height : 200px;
-*/
+
 const StyledModal = styled.div`
     position: absolute;
     
-    width : 500px;
 
+    padding : 16px;
+    border : solid 5px;
+    border-radius : 24px;
 
     top : 50%;
     left : 50%;
@@ -63,18 +64,48 @@ const StyledModal = styled.div`
 
 
 
-const StyledImg = styled.img `
+const StyledImg = styled.img`
     width : 70px;
     height : 70px;
 `;
 
 interface Props {
-    basket : IReducerBasket
+    basket: IReducerBasket
     onClose: () => any
 }
 
-const StyledContainerArt = styled.section ` 
-    width : 480px
+const StyledContainerArt = styled.section` 
+    width : 480px;
+    padding : 16px;
+
+`;
+
+const StyledTh = styled.th ` 
+        padding : 16px;
+
+`;
+
+const StyledTable = styled.table ` 
+    border : solid;
+    border-width : 2px 2px 2px 2px;
+    border-radius : 12px;
+`;
+
+const StyledThead = styled.thead `
+    background-color : orange;
+    color : black;
+
+`;
+
+//background-color : #fcf9f5;
+
+const StyledTBody = styled.tbody ` 
+    background-color : #483799;
+    color : black;
+`;
+
+const StyledFinalPrice = styled.h3 `
+    color : orange;
 `;
 
 function Modal({ basket, onClose }: Props): ReactElement {
@@ -83,12 +114,27 @@ function Modal({ basket, onClose }: Props): ReactElement {
         <StyledModalContainer>
             <StyledModal>
                 <ModalHeader onClose={onClose} />
-                {
-                    basket.articlesList.map(((_article : IArticleBasket) => <ModalListArticle key={'art-' + _article.article._uuid} basket={_article}></ModalListArticle>))
-                }
-                <p>Total price : {basket.totalPrice}</p>
-                <ModalBottom onClose={onClose}/>
-           
+                <StyledTable>
+                    <StyledThead>
+                        <th colSpan = {3} style={{padding : '12px'}}>PRODUCT</th>
+                        <StyledTh>UNIT PRICE</StyledTh>
+                        <StyledTh>QUANTITY</StyledTh>
+                        <StyledTh>TOTAL</StyledTh>
+                        <StyledTh></StyledTh>
+                    </StyledThead>
+                    <StyledTBody>
+                        {
+                            basket.articlesList.map(((_article: IArticleBasket) => <ModalListArticle key={'art-' + _article.article._uuid} basket={_article}></ModalListArticle>))
+                        }
+                    </StyledTBody>
+
+
+
+                </StyledTable>
+
+                <StyledFinalPrice>Total price : {basket.totalPrice}$</StyledFinalPrice>
+
+                <ModalBottom onClose={onClose} />
 
             </StyledModal>
         </StyledModalContainer>

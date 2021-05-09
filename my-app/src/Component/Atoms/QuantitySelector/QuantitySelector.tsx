@@ -11,7 +11,6 @@ export interface IPropsQtSelector {
 
 const StyledContainQtSelect = styled.div `
     display : flex;
-    flex-grow : 1;
 `;
 
 const StyledDiv = styled.div `

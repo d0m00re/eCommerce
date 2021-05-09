@@ -66,11 +66,12 @@ const BasketReducer = (state: IReducerBasket = initialState, action: { type: str
             console.log('id delete');
             
        //     console.log(idDelete)
-            let decrPrice =state.articlesList[idDelete].count * state.articlesList[idDelete].article.price; 
+            let decrPrice = state.articlesList[idDelete].count * state.articlesList[idDelete].article.price; 
 
             newState = {
                 ...state,
-                articlesList: state.articlesList.filter((_art) => _art.article._uuid !== uuidDelete.uuid)
+                articlesList: state.articlesList.filter((_art) => _art.article._uuid !== uuidDelete.uuid),
+                totalPrice : state.totalPrice - decrPrice
             }
             return (newState);
 

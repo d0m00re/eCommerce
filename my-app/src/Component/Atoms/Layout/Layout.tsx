@@ -45,7 +45,7 @@ const Grid = styled.div `
     grid-template-areas : 
         "Header Header Header Header"
         "Sidebar Content Content Sidebar2"
-        "Sidebar Content Content Sidebar2"
+        "Sidebar Content Content Sidebar2";
 `;
   
 interface Props { 
@@ -62,8 +62,9 @@ function Layout({}: Props): ReactElement {
 
     return (
        <Grid>
+        <ModalBasket basket = {basket} onClose={closeBasket} />
+
         <Header>
-            <ModalBasket basket = {basket} onClose={closeBasket} />
             {basket.showBasket === false &&
                 <button onClick={openBasket}>SHOW BASKET</button>
             }

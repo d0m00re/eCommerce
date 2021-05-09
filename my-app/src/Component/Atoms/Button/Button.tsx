@@ -1,31 +1,22 @@
 import React, { ReactElement } from 'react'
 import styled from "styled-components";
 import theme from './../../../Style/Theme';
-import { prependOnceListener } from 'cluster';
 //    background-color : ${props => props.contextMenu.primary.button};
 
 export interface IButtonProps {
     onClick : () => void,
-    variant ?: string,//'primary' | 'secondary'
+    variant ?: 'primary' | 'secondary';
+    sizeElem ?: 'small' | 'medium' | 'big';
+    form ?: 'rectangle' | 'circle';
     disabled ?: boolean;
     children ?: JSX.Element | string | undefined;
 }
 
-
-let color = 'green'
-
-/*
-const StyledButtonPrimary = styled.button<IButtonProps>`
-    background-color : ${props => (props.variant==='primary') ? theme.button.primary.backgroundColor : theme.button.secondary.backgroundColor};
-    color : ${(variant === 'primary') ? theme.button.primary.color : theme.button.secondary.color};
-    padding : 26px 72px;
-`;
-*/
-
 const StyledButtonPrimary = styled.button<IButtonProps>`
     background-color : ${props => (props.variant==='primary') ? theme.button.primary.backgroundColor : theme.button.secondary.backgroundColor};
     color : ${props => (props.variant === 'primary') ? theme.button.primary.color : theme.button.secondary.color};
-    padding : 26px 72px;
+    padding : ${props => (props.sizeElem === 'small') ? theme.button.size.small.padding.h : (props.sizeElem === 'medium') ? theme.button.size.medium.padding.h : theme.button.size.big.padding.h}px;
+    border-radius : ${props => (props.form === 'rectangle') ? 0 : 50}%;
 `;
 
 /*
@@ -36,12 +27,13 @@ color : ${(true) ? theme.button.primary.color : theme.button.secondary.color};
 */
 
 
-function ButtonPrimary({children, onClick, variant = 'primary', disabled = false}: IButtonProps): ReactElement {
+function ButtonPrimary({children, onClick, variant = 'primary', disabled = false, sizeElem = 'big', form = 'rectangle'}: IButtonProps): ReactElement {
     return (
-        <StyledButtonPrimary onClick={(disabled) ? () => {} : onClick} variant={variant}>
+        <StyledButtonPrimary onClick={(disabled) ? () => {} : onClick} variant={variant} sizeElem={sizeElem} form={form}>
             {children}
         </StyledButtonPrimary>
     )
 }
 
 export default ButtonPrimary;
+ 
