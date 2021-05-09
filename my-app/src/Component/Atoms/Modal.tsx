@@ -1,5 +1,8 @@
 import React, { ReactElement, useState, useEffect } from 'react'
 import styled, {keyframes} from "styled-components";
+import IReducerBasket from './../../Types/IReducerBasket';
+import { IArticleBasket } from '../../Types/IArticle';
+
 
 // fade
 const fade = keyframes`
@@ -35,11 +38,16 @@ const StyledModalContainer = styled.div`
     animation-duration : 1s ;
     animation-fill-mode: forwards;
 `
-
+/*
+width : 200px;
+    height : 200px;
+*/
 const StyledModal = styled.div`
     position: absolute;
-    width : 200px;
-    height : 200px;
+    
+    width : 500px;
+
+
     top : 50%;
     left : 50%;
     transform : translate(-50%, -50%);
@@ -50,23 +58,56 @@ const StyledModal = styled.div`
     animation-fill-mode: forwards;
 `;
 
+const StyledModalTitle = styled.h4`
+    color : orange;
+`;
+
+const StyledImg = styled.img `
+    width : 70px;
+    height : 70px;
+`;
+
 interface Props {
-    show: boolean,
+    basket : IReducerBasket
     onClose: () => any
 }
 
-function Modal({ show, onClose }: Props): ReactElement {
+const StyledContainerArt = styled.section ` 
+    width : 480px
+`;
+
+function ModalArticle({ basket} : {basket : IArticleBasket}) : ReactElement {
+    return (
+        <>
+            <div>{basket.article.title}</div>
+            <div>count :{basket.count}</div>
+            <button>incr</button>
+            <button>decr</button>
+            <button>delete</button>
+            <StyledImg src= {basket.article.pathImg} alt={basket.article.description}></StyledImg>
+            <div>{basket.article.price}</div>
+        </>
+    );
+};
+
+function Modal({ basket, onClose }: Props): ReactElement {
 
     const Modal = () =>
         <StyledModalContainer>
             <StyledModal>
-                show modal
-            <button onClick={onClose}>CLOSE BASKET</button>
+                Your product
+                {
+                    basket.articlesList.map(((_article : IArticleBasket) => <ModalArticle basket={_article}></ModalArticle>))
+                }
+                <p>Total price : {basket.totalPrice}</p>
+            <button onClick={onClose}>Continue</button>
+            <button onClick={onClose}>Buy</button>
+
             </StyledModal>
         </StyledModalContainer>
 
     const showModalOrNot = () => {
-        return (show) ? Modal() : <></>;
+        return (basket.showBasket) ? Modal() : <></>;
     }
 
     return (showModalOrNot())

@@ -3,6 +3,9 @@ import styled from "styled-components";
 import ListArticles from './../../Molecules/ArticlesList/ArticlesList';
 import dataListArticles from './../../../Data/articles';
 import ModalBasket from './../../Atoms/Modal';
+import {useSelector, useDispatch} from 'react-redux';
+import IReducerBasket from './../../../Types/IReducerBasket';
+import * as actions from './../../../Redux/actions/Basket';
 
 const genDiv = styled.div `
       border-radius: 5px;
@@ -43,13 +46,17 @@ interface Props {
 function Layout({}: Props): ReactElement {
 
     const [showbasket, setShowBasket] = useState(false);
+    const basket : IReducerBasket = useSelector((state : {basket : IReducerBasket}) => state.basket);
+    const dispatch = useDispatch();
+    const closeBasket = () => dispatch(actions.hideBasket());
+    const openBasket = () => dispatch(actions.showBasket());
 
     return (
        <Grid>
         <Header>
-            <ModalBasket show={showbasket} onClose={() => setShowBasket(false)} />
-            {showbasket === false &&
-                <button onClick={() => setShowBasket(true)}>SHOW BASKET</button>
+            <ModalBasket basket = {basket} onClose={closeBasket} />
+            {basket.showBasket === false &&
+                <button onClick={openBasket}>SHOW BASKET</button>
             }
         </Header>
 
