@@ -38,6 +38,8 @@ const StyledModalContainer = styled.div`
     animation-name : ${fade} ;
     animation-duration : 1s ;
     animation-fill-mode: forwards;
+
+    z-index : 42;
 `
 /*
 width : 200px;
