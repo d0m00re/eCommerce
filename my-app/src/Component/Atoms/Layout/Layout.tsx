@@ -7,6 +7,8 @@ import {useSelector, useDispatch} from 'react-redux';
 import IReducerBasket from './../../../Types/IReducerBasket';
 import * as actions from './../../../Redux/actions/Basket';
 
+import Button from './../../Atoms/Button/Button';
+
 const genDiv = styled.div `
       border-radius: 5px;
 `

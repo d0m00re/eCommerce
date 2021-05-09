@@ -23,19 +23,6 @@ const StyledCard = styled.div`
     position : relative;
 `;
 
-/*
-   display : none;
-
-    &:hover {
-        position : absolute;
-        width : 100%;
-         height : 100%;
-        background-color : yellow;
-        display : content;
-        z-index : 42;
-    }
-*/
-
 const StyledCardHover = styled.div`
 position : absolute;
         width : 100%;
