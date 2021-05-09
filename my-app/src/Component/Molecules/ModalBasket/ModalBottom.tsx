@@ -26,3 +26,4 @@ function ModalBottom({onClose}: Props): ReactElement {
 }
 
 export default ModalBottom
+ 

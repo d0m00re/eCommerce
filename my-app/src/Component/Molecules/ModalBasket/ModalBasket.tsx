@@ -7,6 +7,11 @@ import ModalListArticle from './ModalListArticle';
 import ModalHeader from './ModalHeader';
 import ModalBottom from './ModalBottom';
 
+interface Props {
+    basket: IReducerBasket
+    onClose: () => any
+}
+
 // fade
 const fade = keyframes`
   from {
@@ -33,7 +38,7 @@ const fade3 = keyframes`
 const StyledModalContainer = styled.div` 
     position : absolute;
     width : 100vw;
-    height : 100vh;
+    height : 100%;
 
     animation-name : ${fade} ;
     animation-duration : 1s ;
@@ -69,10 +74,7 @@ const StyledImg = styled.img`
     height : 70px;
 `;
 
-interface Props {
-    basket: IReducerBasket
-    onClose: () => any
-}
+
 
 const StyledContainerArt = styled.section` 
     width : 480px;

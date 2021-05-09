@@ -9,13 +9,14 @@ import * as actions from './../../../Redux/actions/Basket';
 
 import Button from './../../Atoms/Button/Button';
 
+import BasketSeparator from './../../Particles/SeparatorWithBasket/SeparatorWithBasket';
+
 const genDiv = styled.div `
       border-radius: 5px;
 `
 
 const Header = styled(genDiv) `
     grid-area : Header;
-    background-color : blue;
 `;
 
 const Sidebar = styled(genDiv) `
@@ -53,22 +54,18 @@ interface Props {
 }
 
 function Layout({}: Props): ReactElement {
-
-    const [showbasket, setShowBasket] = useState(false);
     const basket : IReducerBasket = useSelector((state : {basket : IReducerBasket}) => state.basket);
     const dispatch = useDispatch();
     const closeBasket = () => dispatch(actions.hideBasket());
-    const openBasket = () => dispatch(actions.showBasket());
 
     return (
+        <>
+    <BasketSeparator dispatch={dispatch} />        
        <Grid>
-        <ModalBasket basket = {basket} onClose={closeBasket} />
-
-        <Header>
-            {basket.showBasket === false &&
-                <button onClick={openBasket}>SHOW BASKET</button>
-            }
-        </Header>
+           <Header>
+                <a href='#market'></a>
+                <ModalBasket basket = {basket} onClose={closeBasket} />
+           </Header>
 
         <Sidebar>
             
@@ -82,6 +79,7 @@ function Layout({}: Props): ReactElement {
             <ListArticles articles={dataListArticles} />
         </Content>
         </Grid>
+        </>
     )
 }
 
