@@ -1,6 +1,7 @@
 # Launch project :
+```
 cd my-app; npm install; npm start;
-
+```
 ## Techno :
 * styled component
 * reactjs
