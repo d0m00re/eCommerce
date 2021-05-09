@@ -38,6 +38,9 @@ const StyledCard = styled.div`
     border-color : #9877ea;
 
     border-radius : 16px;
+
+    transition: background-color 1.0s ease;
+
 `;
 
 const StyledCardHover = styled.div`
@@ -47,6 +50,7 @@ const StyledCardHover = styled.div`
     height : 100%;
     visibility : hidden;
 
+    transition: background-color 1.0s ease;
     
  
     ${StyledCard}:hover & {
@@ -54,6 +58,8 @@ const StyledCardHover = styled.div`
         
         background-color : rgba(0, 0, 0, 0.8);
         z-index : 42;
+        transition: background-color 1.0s ease;
+
     }
 
 `;
