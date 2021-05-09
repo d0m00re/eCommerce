@@ -1,4 +1,4 @@
-import React, { ReactElement, useState, useEffect } from 'react'
+import React, { ReactElement } from 'react'
 import styled, { keyframes } from "styled-components";
 import IReducerBasket from './../../../Types/IReducerBasket';
 import { IArticleBasket } from '../../../Types/IArticle';
@@ -103,11 +103,13 @@ function Modal({ basket, onClose }: Props): ReactElement {
                 <ModalHeader onClose={onClose} />
                 <StyledTable>
                     <StyledThead>
-                        <th colSpan = {3} style={{padding : '12px'}}>PRODUCT</th>
-                        <StyledTh>UNIT PRICE</StyledTh>
-                        <StyledTh>QUANTITY</StyledTh>
-                        <StyledTh>TOTAL</StyledTh>
-                        <StyledTh></StyledTh>
+                        <tr>
+                            <th colSpan = {3} style={{padding : '12px'}}>PRODUCT</th>
+                            <StyledTh>UNIT PRICE</StyledTh>
+                            <StyledTh>QUANTITY</StyledTh>
+                            <StyledTh>TOTAL</StyledTh>
+                            <StyledTh></StyledTh>
+                        </tr>
                     </StyledThead>
                     <StyledTBody>
                         {

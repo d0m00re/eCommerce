@@ -18,6 +18,8 @@ const StyledButtonPrimary = styled.button<IButtonProps>`
     padding : ${props => (props.sizeElem === 'small') ? theme.button.size.small.padding.h : (props.sizeElem === 'medium') ? theme.button.size.medium.padding.h : theme.button.size.big.padding.h}px;
     border-radius : ${props => (props.form === 'rectangle') ? 0 : 50}%;
 
+    transition: background-color 1.0s ease;
+
     &:hover {
         background-color : orange;
         color : black;

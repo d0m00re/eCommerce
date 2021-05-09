@@ -1,6 +1,5 @@
 import * as constant from './../constants/Basket';
 import {IArticle, IArticleBasket} from './../../Types/IArticle';
-import { constants } from 'buffer';
 
 import IPayloadIncrDecr from './../../Types/IPayloadIncrDecr';
 
@@ -37,8 +36,3 @@ export const hideBasket = () => ({
     type : constant.HIDE_BASKET,
     payload : null
 });
-
-/*
-export const articleIncrQuantity = () => { ARTICLE_INCR_QUANTITY = 'ARTICLE_INCR_QUANTITY';}
-export const articleDecrQuantity = () => { ARTICLE_DECR_QUANTITY = 'ARTICLE_DECR_QUANTITY';}
-*/ 

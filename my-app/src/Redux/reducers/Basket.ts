@@ -27,7 +27,6 @@ const initialState: IReducerBasket = {
 };
 
 const BasketReducer = (state: IReducerBasket = initialState, action: { type: string, payload: any }): IReducerBasket => {
-    let index = 0;
     let newState: IReducerBasket;
     let indexArt : number;
     
@@ -63,9 +62,7 @@ const BasketReducer = (state: IReducerBasket = initialState, action: { type: str
 
             if (idDelete === -1)
                 return state;
-            console.log('id delete');
-            
-       //     console.log(idDelete)
+   
             let decrPrice = state.articlesList[idDelete].count * state.articlesList[idDelete].article.price; 
 
             newState = {
@@ -76,12 +73,9 @@ const BasketReducer = (state: IReducerBasket = initialState, action: { type: str
             return (newState);
 
         case constants.ARTICLE_INCR_QUANTITY:
-            console.log('INCR QUANTITY')
             let incrQt: IPayloadIncrDecr = action.payload;
-            console.log('coucou')
             indexArt = state.articlesList.findIndex((_art) => _art.article._uuid === incrQt.uuid);
 
-            console.log(`${incrQt.uuid} - ${indexArt}`)
 
             if (indexArt === -1)
                 return state;

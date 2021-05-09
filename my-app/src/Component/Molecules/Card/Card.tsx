@@ -1,9 +1,9 @@
-import React, { ReactElement, useState } from 'react'
+import React, { useState } from 'react'
 import { IArticle } from './../../../Types/IArticle';
 
 import styled from "styled-components";
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import * as actionBasket from './../../../Redux/actions/Basket';
 
@@ -82,6 +82,7 @@ const StyledLabel = styled.div`
     color : ${Theme.typo.primary.color};
     padding-left : 10%;
     padding-bottom : 8px;
+    color : orange;
 `;
 
 const StyledButtonContainer = styled.div`
@@ -126,17 +127,9 @@ function Card({ article }: Props) {
     const dispatch = useDispatch();
 
     const addNewArticle = () => {
-        console.log('add new article');
         dispatch(actionBasket.articleAdd({ article: article, count: countArt }));
         setCountArt(1);
     }
-
-    /*
-    const deleteNewArticle = () => {
-        console.log('deletre new article');
-    //    dispatch(actionBasket.articleDelete({uuid : article._uuid, count : 5}))
-    }
-    */
 
     return (
         <StyledCard>
@@ -154,7 +147,7 @@ function Card({ article }: Props) {
                     </StyledSelectorWidget>
                 </StyledSelectorContainer>
                 <StyledButtonContainer>
-                    <Button onClick={addNewArticle} variant='primary'>Add Product</Button>
+                    <Button onClick={addNewArticle} sizeElem='medium' variant='primary'>Add Product</Button>
                 </StyledButtonContainer>
             </StyledCardHover>
 

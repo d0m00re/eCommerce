@@ -4,7 +4,7 @@
   "description": "E commerce about Crystal Art",
   "main": "index.js",
   "scripts": {
-    "run" : "npm run --prefix ./my-app/ start;"
+    "run": "npm run --prefix ./my-app/ start;"
   },
   "repository": {
     "type": "git",
@@ -12,9 +12,12 @@
   },
   "keywords": [],
   "license": "ISC",
-  "author" : "d0m00re",
+  "author": "d0m00re",
   "bugs": {
     "url": "https://github.com/d0m00re/eCommerce/issues"
   },
-  "homepage": "https://github.com/d0m00re/eCommerce#readme"
+  "homepage": "https://github.com/d0m00re/eCommerce#readme",
+  "dependencies": {
+    "redux-persist": "^6.0.0"
+  }
 }

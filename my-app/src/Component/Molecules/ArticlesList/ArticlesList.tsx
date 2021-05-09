@@ -33,7 +33,7 @@ function Article({articles}: Props): ReactElement {
         <FlexRowContainer>
     {
       articles.map((elem : IArticle) => (
-        <FlexRowItem><Card article={elem}></Card></FlexRowItem>))
+        <FlexRowItem key={`ArticlesList-${elem._uuid}`}><Card article={elem}></Card></FlexRowItem>))
     }
     </FlexRowContainer>
     )

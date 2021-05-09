@@ -14,24 +14,29 @@ interface Props {
 const StyledlandingPage = styled.div`
     width : 100vw;
     height : 100vh;
-
 `;
 
 //    color: #fff;
 
+/*
+    font-size: 100px;
+    line-height: 105px; 
+    font-weight: 700;
+*/
 const StyleMainTitle = styled.h1` 
     margin-top: 0px;
     margin-bottom: 24px;
-    font-size: 100px;
-    line-height: 105px;
-    font-weight: 700;
+    font-size : 4.4vw;
 
     color: #fff;
 `;
-
-const StyleSubDescription = styled.h3` 
-    font-size: 24px;
+/*
+font-size: 24px;
     line-height: 38px;
+*/
+const StyleSubDescription = styled.h3` 
+    
+    font-size: 2.2vw;
     color : #bebdd4;
 `;
 
@@ -68,6 +73,7 @@ const StyleMainTitle = styled.h1 `
 
 function LandingPage({ }: Props): ReactElement {
     return (
+        <>
         <StyledlandingPage>
             <StyledHeader>
 
@@ -80,10 +86,13 @@ function LandingPage({ }: Props): ReactElement {
                 <StyledSeparator />
             </StyledFlex>
             <StyledFlex>
-                <Button onClick={() => { }} variant='primary'> Browse Store </Button>
+                <Button onClick={() => {console.log('go store')}}
+                        variant='primary'
+                        sizeElem='big'> Browse Store </Button>
             </StyledFlex>
 
         </StyledlandingPage>
+        </>
     )
 }
 

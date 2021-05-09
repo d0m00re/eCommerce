@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import Button from './../../../Component/Atoms/Button/Button';
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 interface Props {
     onClose : () => ({})
@@ -25,5 +25,4 @@ function ModalBottom({onClose}: Props): ReactElement {
     )
 }
 
-export default ModalBottom
- 
+export default ModalBottom;

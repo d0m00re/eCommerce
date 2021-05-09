@@ -36,11 +36,3 @@ export interface IArticleBasket {
     article: IArticle;
     count: number;
 };
-
-export const getPriceAllBasketArt = (art: IArticleBasket[]): number => {
-    let totalPrice = 0;
-
-    for (let i = 0; i < art.length; i += 1)
-        totalPrice += (art[i].article.price * art[i].count);
-    return 42;
-}

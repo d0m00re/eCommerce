@@ -1,12 +1,8 @@
-import React, { ReactElement, useState, useEffect} from 'react'
-import styled, {keyframes} from "styled-components";
-import IReducerBasket from './../../../Types/IReducerBasket';
+import React, { ReactElement} from 'react'
+import styled from "styled-components";
 import { IArticleBasket } from '../../../Types/IArticle';
 
 import {useDispatch} from 'react-redux';
-import * as actionBasket from './../../../Redux/actions/Basket';
-
-import IPayloadIncrDecr from './../../../Types/IPayloadIncrDecr';
 
 import * as basketAdapter from './../../../Redux/adapters/BasketAdapter';
 
