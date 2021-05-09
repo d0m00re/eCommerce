@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
 import styled from "styled-components";
-
+import theme from './../../../Style/Theme';
+import Button from './../../Atoms/Button/Button';
 
 export interface IPropsQtSelector {
     count : number,
@@ -10,6 +11,7 @@ export interface IPropsQtSelector {
 
 const StyledContainQtSelect = styled.div `
     display : flex;
+    flex-grow : 1;
 `;
 
 const StyledDiv = styled.div `
@@ -26,8 +28,9 @@ const StyledIncr = styled(StyledDiv) `
 
 const StyledCounter = styled(StyledDiv) `
     border-width : 1px 0px 1px 0px;
-  width : 100%;
+  width : 60%;
   text-align : center;
+  background-color : white;
 `
 
 const StyledDecr = styled(StyledDiv) `
@@ -36,6 +39,7 @@ const StyledDecr = styled(StyledDiv) `
   border-radius : 10px 0 0 10px;
   color : black;
 `
+
 /*
 function QuantitySelector({count, fIncr, fDecr}: IPropsQtSelector): ReactElement {
     return (
@@ -50,12 +54,11 @@ function QuantitySelector({count, fIncr, fDecr}: IPropsQtSelector): ReactElement
 
 function QuantitySelector({count, fIncr, fDecr}: IPropsQtSelector): ReactElement {
     return (
-        <StyledContainQtSelect>
+            <StyledContainQtSelect>
                 <StyledDecr onClick={fDecr}> {'<'} </StyledDecr>
                 <StyledCounter> {count}</StyledCounter>
                 <StyledIncr onClick={fIncr}> {'>'} </StyledIncr>
-
-        </StyledContainQtSelect>
+            </StyledContainQtSelect>
     )
 }
 export default QuantitySelector

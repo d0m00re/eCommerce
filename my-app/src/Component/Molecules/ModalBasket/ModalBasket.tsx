@@ -39,7 +39,7 @@ const StyledModalContainer = styled.div`
     animation-duration : 1s ;
     animation-fill-mode: forwards;
 
-    z-index : 42;
+    z-index : 420;
 `
 /*
 width : 200px;

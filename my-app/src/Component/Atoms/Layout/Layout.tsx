@@ -20,25 +20,32 @@ const Header = styled(genDiv) `
 
 const Sidebar = styled(genDiv) `
     grid-area : Sidebar;
-    background-color : red;
+`;
+
+const Sidebar2 = styled(genDiv) `
+    grid-area : Sidebar2;
 `;
 
 const Content = styled(genDiv) ` 
     grid-area : Content;
-    background-color : cyan;
+    background-color : rgba(0,0,0,0.2);
 
 `;
-
+/*
+   "Header Header Header Header"
+        "Sidebar Content Content Content"
+        "Sidebar Content Content Content"
+*/
 const Grid = styled.div `
     display : grid;
     grid-gap: 12px;
     margin: 12px;
-    grid-template-columns: 20vw 1fr;
-     grid-template-rows: 10vh 45vh 45vh;
+    grid-template-columns: 18vw 30vw 30vw 19vw;
+     grid-template-rows: 5vh 45vh 45vh 5vh;
     grid-template-areas : 
         "Header Header Header Header"
-        "Sidebar Content Content Content"
-        "Sidebar Content Content Content"
+        "Sidebar Content Content Sidebar2"
+        "Sidebar Content Content Sidebar2"
 `;
   
 interface Props { 
@@ -63,8 +70,12 @@ function Layout({}: Props): ReactElement {
         </Header>
 
         <Sidebar>
-            Sidebar
+            
         </Sidebar>
+
+        <Sidebar2>
+            
+        </Sidebar2>
         
         <Content>
             <ListArticles articles={dataListArticles} />

@@ -7,32 +7,50 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import * as actionBasket from './../../../Redux/actions/Basket';
 
-import { StyledModalTitle } from './../../../Style/general';
-
 import QuantitySelector from './../../Atoms/QuantitySelector/QuantitySelector';
 
+import Theme from './../../../Style/Theme';
+
+import Button from './../../../Component/Atoms/Button/Button';
 
 //import 
+
+/*
+todo add padding : 16px on all cart
+change color
+add good title
+change description test
+*/
 
 const StyledCard = styled.div`
     display : flex;
     flex-direction : column;
     align-items : center;
-    background-color : violet;
+    background-color : ${Theme.button.primary.backgroundColor};
     width : 300px;
     position : relative;
+    
+    padding : 16px;
+
+    border : solid;
+    border-color : #9877ea;
+
+    border-radius : 16px;
 `;
 
 const StyledCardHover = styled.div`
-position : absolute;
-        width : 100%;
-         height : 100%;
+    position : absolute;
+    top : 0px;
+    width : 100%;
+    height : 100%;
     visibility : hidden;
+
+    
  
     ${StyledCard}:hover & {
         visibility : visible;
         
-        background-color : rgba(255, 0,0, 0.5);
+        background-color : rgba(0, 0, 0, 0.8);
         z-index : 42;
     }
 
@@ -45,18 +63,55 @@ const StyledImg = styled.img`
 
 const StyledPrice = styled.h2`
     position : absolute;
-    background-color : green;
-    color : white;
+    background-color : orange;
+    color : #0f0823;
     top : 8px;
-    left : 0;
+    left : -8px;
     margin : 0;
     padding : 8px 16px;
-    z-index : 6;
+    z-index : 66;
+
+    box-shadow: 2px 2px 0 0 rgba(0,0,0,0.35);
 `;
+
+const StyledDescription = styled.div` 
+    color : orange;
+`;
+
+const StyledLabel = styled.div`
+    color : ${Theme.typo.primary.color};
+    padding-left : 10%;
+    padding-bottom : 8px;
+`;
+
+const StyledButtonContainer = styled.div`
+    display : flex;
+    height : 20%;
+    flex-direction :row; 
+    align-items : center;
+    justify-content : center;
+`;
+
+const StyledSelectorContainer = styled.div`
+    padding-top : 80%;
+
+`
+
+const StyledSelectorWidget = styled.div`
+    padding-left : 12.5%;
+`;
+
+export const StyledTitle = styled.h3`
+    color : orange;
+
+    margin : 8px;
+`; 
 
 interface Props {
     article: IArticle
 }
+
+
 /*
             <p>{article.title}, description : {article.description} price : {article.price}, path : {article.pathImg}</p>
 */
@@ -86,17 +141,26 @@ function Card({ article }: Props) {
     return (
         <StyledCard>
             <StyledImg src={article.pathImg} />
-            <StyledModalTitle>---- {article.title} ----</StyledModalTitle>
-            <p>{article.description}</p>
+            <StyledTitle>---- {article.title} ----</StyledTitle>
+            <StyledDescription>{article.description}</StyledDescription>
             <StyledPrice>{article.price} $</StyledPrice>
+
             <StyledCardHover>
-                <p>Quantity</p>
-                <QuantitySelector fIncr={incrArtc} fDecr={decrArtc} count={countArt}  />
-                <button onClick={addNewArticle}>Add Product</button>
+                <StyledSelectorContainer>
+                    <StyledLabel>Quantity:</StyledLabel>
+
+                    <StyledSelectorWidget>
+                        <QuantitySelector fIncr={incrArtc} fDecr={decrArtc} count={countArt} />
+                    </StyledSelectorWidget>
+                </StyledSelectorContainer>
+                <StyledButtonContainer>
+                    <Button onClick={addNewArticle} variant='primary'>Add Product</Button>
+                </StyledButtonContainer>
             </StyledCardHover>
 
+        </StyledCard>
+    );
 
-        </StyledCard>);
 }
 
 export default Card;

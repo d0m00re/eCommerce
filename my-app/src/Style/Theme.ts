@@ -11,6 +11,14 @@ const theme = {
             backgroundColor : '#201933'
         }
     },
+    typo : {
+        primary : {
+            color :  '#EFEEF0'
+        },
+        secondary : {
+            color : '#85839B'
+        }
+    }
 };
 
 export default theme;
