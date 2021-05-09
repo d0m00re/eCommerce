@@ -13,6 +13,8 @@ import Theme from './../../../Style/Theme';
 
 import Button from './../../../Component/Atoms/Button/Button';
 
+import Separator from './../../Atoms/Separator/Separator';
+
 //import 
 
 /*
@@ -75,7 +77,8 @@ const StyledPrice = styled.h2`
 `;
 
 const StyledDescription = styled.div` 
-    color : orange;
+    color : #bebdd4;
+    line-height : 1.4;
 `;
 
 const StyledLabel = styled.div`
@@ -95,11 +98,16 @@ const StyledButtonContainer = styled.div`
 
 const StyledSelectorContainer = styled.div`
     padding-top : 80%;
-
 `
 
 const StyledSelectorWidget = styled.div`
     padding-left : 12.5%;
+`;
+
+const StyledFlexRow = styled.div`
+    display : flex;
+    justify-content : space-between;
+    align-items : center;
 `;
 
 export const StyledTitle = styled.h3`
@@ -134,7 +142,12 @@ function Card({ article }: Props) {
     return (
         <StyledCard>
             <StyledImg src={article.pathImg} />
-            <StyledTitle>---- {article.title} ----</StyledTitle>
+
+            <StyledFlexRow>
+                <Separator dim={{w : 20, h : 5}} backgroundColor={'#bebdd4'}/>
+                <StyledTitle>{article.title}</StyledTitle>
+                <Separator dim={{w : 20, h : 5}} backgroundColor={'#bebdd4'}/>
+            </StyledFlexRow>
             <StyledDescription>{article.description}</StyledDescription>
             <StyledPrice>{article.price} $</StyledPrice>
 
