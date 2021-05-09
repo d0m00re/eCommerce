@@ -9,7 +9,7 @@ import * as actionBasket from './../../../Redux/actions/Basket';
 
 import { StyledModalTitle } from './../../../Style/general';
 
-
+import QuantitySelector from './../../Atoms/QuantitySelector/QuantitySelector';
 
 
 //import 
@@ -28,7 +28,7 @@ position : absolute;
         width : 100%;
          height : 100%;
     visibility : hidden;
-
+ 
     ${StyledCard}:hover & {
         visibility : visible;
         
@@ -53,11 +53,6 @@ const StyledPrice = styled.h2`
     padding : 8px 16px;
     z-index : 6;
 `;
-
-const StyledQtSelector = styled.div`
-    display : flex;
-
-`
 
 interface Props {
     article: IArticle
@@ -96,11 +91,7 @@ function Card({ article }: Props) {
             <StyledPrice>{article.price} $</StyledPrice>
             <StyledCardHover>
                 <p>Quantity</p>
-                <StyledQtSelector>
-                    <button onClick={decrArtc}>-</button>
-                    <p>{countArt}</p>
-                    <button onClick={incrArtc}>+</button>
-                </StyledQtSelector>
+                <QuantitySelector fIncr={incrArtc} fDecr={decrArtc} count={countArt}  />
                 <button onClick={addNewArticle}>Add Product</button>
             </StyledCardHover>
 
