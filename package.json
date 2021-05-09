@@ -1,0 +1,20 @@
+{
+  "name": "eCommerce",
+  "version": "1.0.0",
+  "description": "E commerce about Crystal Art",
+  "main": "index.js",
+  "scripts": {
+    "run" : "npm run --prefix ./my-app/ start;"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d0m00re/eCommerce.git"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "author" : "d0m00re",
+  "bugs": {
+    "url": "https://github.com/d0m00re/eCommerce/issues"
+  },
+  "homepage": "https://github.com/d0m00re/eCommerce#readme"
+}

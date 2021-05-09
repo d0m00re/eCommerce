@@ -67,21 +67,6 @@ const StyledModal = styled.div`
     animation-fill-mode: forwards;
 `;
 
-
-
-const StyledImg = styled.img`
-    width : 70px;
-    height : 70px;
-`;
-
-
-
-const StyledContainerArt = styled.section` 
-    width : 480px;
-    padding : 16px;
-
-`;
-
 const StyledTh = styled.th ` 
         padding : 16px;
 

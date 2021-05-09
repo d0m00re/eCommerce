@@ -19,7 +19,6 @@ import IReducerBasket from './Types/IReducerBasket';
 import * as basketAdapter from './Redux/adapters/BasketAdapter'; 
 
 function App() {
-  const dispatch = useDispatch();
 
   const basket : IReducerBasket = useSelector((state : {basket : IReducerBasket}) => state.basket);
 
@@ -31,6 +30,7 @@ function App() {
 return <StyledRoot>
         <LandingPage />
         <Layout />
+
       </StyledRoot>
 }
 export default App;
