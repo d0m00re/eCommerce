@@ -54,7 +54,7 @@ const Grid = styled.div`
 `;
 
 interface Props {
-
+ 
 }
 
 function Layout({ }: Props): ReactElement {

@@ -88,3 +88,4 @@ function NftGallery({listCards}: Props): ReactElement {
 }
 
 export default NftGallery
+ 

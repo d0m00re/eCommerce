@@ -10,7 +10,7 @@ export interface IButtonProps {
     form ?: 'rectangle' | 'circle';
     disabled ?: boolean;
     children ?: JSX.Element | string | undefined;
-}
+} 
 
 const StyledButtonPrimary = styled.button<IButtonProps>`
     background-color : ${props => (props.variant==='primary') ? theme.button.primary.backgroundColor : theme.button.secondary.backgroundColor};

@@ -93,6 +93,8 @@ line-height: 30px;
 export const StyledFlexRow = styled.div` 
 display : flex;
 flex-direction : row;
+    justify-content : center;
+    align-items : center;
 `;
 
 export const StyledFlexColumn = styled.div` 
@@ -142,11 +144,13 @@ font-weight: 700;
 
 `;
 
-export const StyledNavBar = styled.nav` 
+export const StyledNavBar = styled.nav`
+
     & > ul {
         display : flex;
         margin-bottom: 0px;
         padding-left: 0px;
+        margin-top : 0px;
         & > li {
             margin-right: 24px;
             margin-left: 24px;

@@ -170,7 +170,7 @@ function ModalBasket({ }: Props): ReactElement {
                                                 <StyledTitle>{_card.article.title}</StyledTitle>
                                                 <StyledText>$ {_card.article.price}/u USD</StyledText>
                                                 <StyledText>Quantity : {_card.count}</StyledText>
-                                                <StyledRemove>remove</StyledRemove>
+                                                <StyledRemove onClick={() => {basketAdp.deleteArt(dispatch, {uuid : _card.article._uuid})}}>remove</StyledRemove>
                                             </StyledCard>
                                         </StyledBodyCard>
                                     )
@@ -182,7 +182,7 @@ function ModalBasket({ }: Props): ReactElement {
                                 <StyledText>Subtotal</StyledText>
                                 <StyledText>${basket.totalPrice}</StyledText>
                                 </div>
-                                <GenButton size='big' href='' text='Continue To Checkout' />
+                                <GenButton size='big' href='/' onClick={() => {}} text='Continue To Checkout' />
                         </StyledBottom>
                         </StyledModalContainer>
 

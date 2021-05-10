@@ -52,7 +52,7 @@ const StyledModalContainer = styled.div`
 const StyledModal = styled.div`
     position: absolute;
     
-
+ 
     padding : 16px;
     border : solid 5px;
     border-radius : 24px;

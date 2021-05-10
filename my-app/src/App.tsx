@@ -27,7 +27,7 @@ function App() {
     <StyledMain>
     
       <Router>
-      <ModalBasket />
+      <ModalBasket /> 
       <HeaderBar />
         <Switch>
 
