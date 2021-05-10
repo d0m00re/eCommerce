@@ -22,6 +22,7 @@
     "react-is": "^16.13.1",
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
+    "react-router-hash-link": "^2.4.1",
     "react-scripts": "4.0.3",
     "react-scroll": "^1.8.2",
     "react-tsparticles": "^1.26.4",
@@ -79,6 +80,7 @@
     "@storybook/react": "^6.2.9",
     "@types/react-animate-on-scroll": "^2.1.2",
     "@types/react-router-dom": "^5.1.7",
+    "@types/react-router-hash-link": "^2.0.0",
     "@types/styled-components": "^5.1.9",
     "@types/uuid": "^8.3.0",
     "redux-devtools": "^3.7.0"

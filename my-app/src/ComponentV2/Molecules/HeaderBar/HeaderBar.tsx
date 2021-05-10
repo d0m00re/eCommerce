@@ -16,6 +16,8 @@ import IReducerBasket from './../../../Types/IReducerBasket';
 
 import * as apiBasket from './../../../Redux/adapters/BasketAdapter';
 
+import { HashLink } from 'react-router-hash-link';
+
 const StyledLogo = styled.div` 
     transition: transform 350ms ease, -webkit-transform 350ms ease;
     &:hover {
@@ -64,22 +66,22 @@ function NavBar({count} : {count : number}) {
         <StyledNavBar>
             <ul>
                 <li>
-                    <a href='#Home'>Home</a>
+                    <HashLink smooth to="/">Home</HashLink>
                 </li>
                 <li>
-                    <a href='#About'>About</a>
+                    <HashLink smooth to="/page#about">About</HashLink>
                 </li>
                 <li>
-                    <a href='#Store'>Store</a>
+                    <HashLink smooth to="/page#store">Store</HashLink>
                 </li>
                 <li>
-                    <a href='#Work'>Work</a>
+                    <HashLink smooth to="/page#work">Work</HashLink>
                 </li>
                 <li>
-                    <a href='#Pages'>Pages</a>
+                    <HashLink smooth to="/page#pages">Pages</HashLink>
                 </li>
                 <li onClick={() => {apiBasket.show(dispatch)}}>
-                    <a>Cart({count})</a>
+                    <a>Card({count})</a>
                 </li>
             </ul>
         </StyledNavBar>
@@ -103,7 +105,7 @@ function HeaderBar({ }: Props): ReactElement {
                 <Logo />
                 <NavBar count={totalArt(basket)} />
                 <StyledButtonContainer>
-                    <GenButton text='Browse Gallerie' href='#gallerie' size='medium' />
+                    <GenButton useDynamicAnchor text='Browse Gallerie' href='/page#store' size='medium'  />
                 </StyledButtonContainer>
             </StyleFlexboxSpaceEvenly>
         </StyledMyBlockLayout>

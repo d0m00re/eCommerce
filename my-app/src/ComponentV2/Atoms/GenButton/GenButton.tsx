@@ -4,6 +4,10 @@ import styled from "styled-components";
 
 import Theme from './../../../Style/ThemeV2';
 
+//                    <HashLink smooth to="/page#store">Store</HashLink>
+
+import { HashLink } from 'react-router-hash-link';
+
 interface IButtonProps {
   size : 'small' | 'medium' | 'big';
 };
@@ -50,15 +54,16 @@ export interface IGenButtonProps {
     text : string;
     href ?: string;
     size ?: 'small' | 'medium' | 'big';
-
+    useDynamicAnchor ?: boolean;
     onClick ?: () => any;
+
   };
   
   
 
   //       <a  href={href} onClick={onClick}>{text}</a>
 
-function GenButton ({onClick = () => {}, text, href = '', size = 'small'} : IGenButtonProps) {
+function GenButton ({useDynamicAnchor = false,  onClick = () => {}, text, href = '', size = 'small'} : IGenButtonProps) {
   const history = useHistory();
    
   const go = () => {
@@ -68,7 +73,13 @@ function GenButton ({onClick = () => {}, text, href = '', size = 'small'} : IGen
   
     return ( 
      <StyledButton size = {size}>
+       { useDynamicAnchor === false &&
        <a onClick={go}>{text}</a>
+        }
+        {
+          useDynamicAnchor && 
+        <HashLink smooth to={href}>{text}</HashLink>
+        }
      </StyledButton>
     );
   };

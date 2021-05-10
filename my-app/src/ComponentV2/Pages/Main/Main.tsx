@@ -27,7 +27,7 @@ import ScrollAnimation from 'react-animate-on-scroll';
 
 export const StyledLogo = styled.div ` 
   & > a {
-    & > img {
+    & > img { 
       width : 130px;
     }
   } 
@@ -62,13 +62,13 @@ function Main() {
     <StyledMain>
           <ScrollAnimation animateIn="fadeIn">
 
-        <section style={{paddingTop : '150px'}}>
+        <section  style={{paddingTop : '150px'}}>
             <StyledBlockLayout>
                 <StyledGridMe>
                     <StyledGridMeFirstCol>
                         <Title />
                         <Description />
-                        <GenButton text='Browse Gallerie' href='#gallerie' size='big' />
+                        <GenButton useDynamicAnchor text='Browse Gallerie' href='/page#store' size='big' />
                     </StyledGridMeFirstCol>
                 </StyledGridMe> 
             </StyledBlockLayout>
@@ -89,7 +89,7 @@ function Main() {
         </section>
     */}
     <ScrollAnimation animateIn="fadeIn">
-        <section>
+        <section id='store'>
         <StyledBlockLayout>
             <NftGallery listCards={listCard} />
        </StyledBlockLayout>
@@ -97,7 +97,7 @@ function Main() {
     </section>
     </ScrollAnimation>
 
-  <section>
+  <section  id='work'>
   <StyledBlockLayout>
 
     <MyWork listMyWorks={listMyWorks} />
