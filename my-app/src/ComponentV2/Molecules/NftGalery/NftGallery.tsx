@@ -32,6 +32,8 @@ const StyledImg = styled.img`
 const StyledMyBlockLayout = styled(StyledBlockLayout) ` 
     max-width: 730px;
     margin-bottom : 58px;
+    padding-bottom : 0px;
+    padding-top : 220px;
 `;
 
 const StyledMySubtitle = styled(StyledSubtitle)` 

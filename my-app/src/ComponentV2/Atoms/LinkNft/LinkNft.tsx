@@ -3,6 +3,13 @@ import styled from "styled-components";
 
 import Theme from './../../../Style/ThemeV2';
 
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
+
 interface Props {
     href : string
     underline ?: boolean
@@ -40,11 +47,13 @@ const StyledLink = styled.a`
 
 function LinkNft({href, underline = true}: Props): ReactElement {
     return (
-        <StyledLink href={href}>
+        <StyledLink>
+            <Link to={href}>
             <div>View NFT</div>
             {
                 underline === true && <div></div>
             }
+            </Link>
         </StyledLink>
     )
 }

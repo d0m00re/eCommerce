@@ -29,7 +29,7 @@ export const StyledMyWork = styled.div`
     grid-row-gap: 16px;
     grid-column-gap: 16px;
 `;
-
+ 
 export const FlexboxRowSpaceB = styled.div ` 
     display : flex;
     flex-direction : row;

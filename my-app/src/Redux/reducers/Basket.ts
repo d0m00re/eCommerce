@@ -49,6 +49,8 @@ const BasketReducer = (state: IReducerBasket = initialState, action: { type: str
                 articleList[id].count += newPayload.count;
             }
 
+            
+
             return {
                 articlesList: articleList,
                 showBasket: true,

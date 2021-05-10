@@ -58,6 +58,15 @@ line-height: 38px;
 font-weight: 700;
 `;
 
+export const StyledVerySmallTitle = styled.h4` 
+font-size: 22px;
+line-height: 28px;
+ margin : 0;
+padding : 0;
+color : '#fff';
+font-weight : 700;
+`;
+
 // DESCRIPTION - medium text
 export const StyledDescription = styled.p` 
 color : ${Theme.text.color};
@@ -164,6 +173,7 @@ export const StyledBlockLayout = styled.div`
     padding-right : 24px;
     margin-right: auto;
     margin-left: auto;
+    padding-bottom : 220px;
 `;
 export const StyledGridMe = styled.div` 
     display : grid;

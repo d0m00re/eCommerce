@@ -1,4 +1,4 @@
-import { v4 as uuidv4 } from 'uuid';
+import { v5 as uuidv5 } from 'uuid';
 
 export interface IArticle {
     title: string;
@@ -25,7 +25,7 @@ export const makeIArticle = (
         pathImg: pathImg,
         collection: collection || '',
         tag: tag || [],
-        _uuid: uuidv4()
+        _uuid: uuidv5(title + price, uuidv5.URL) // ⇨ 'c106a26a-21bb-5538-8bf2-57095d1976c1'
     }
 }
 
