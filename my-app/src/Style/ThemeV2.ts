@@ -75,6 +75,7 @@ export const StyledCitation = styled.p`
 color : ${Theme.text.color};
 margin-bottom : 0px;
 margin-top: 0px;
+line-height: 30px;
 `;
 
 //------------------------------------------------------------------

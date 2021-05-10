@@ -20,6 +20,8 @@ import {logo} from './Data/card/index';
 
 import MyWork from './ComponentV2/Molecules/MyWork/MyWork';
 
+import NftGallery from './ComponentV2/Molecules/NftGalery/NftGallery';
+
 export const StyledLogo = styled.div ` 
   & > a {
     & > img {
@@ -107,9 +109,7 @@ function Description () {
   );
 }
 
-const StyledImg = styled.img`
 
-`;
 
 
 const StyledList = styled.ul ` 
@@ -142,7 +142,7 @@ function App() {
         <Description />
         <GenButton text='Browse Gallerie' href='#gallerie' size='big' />
       </StyledGridMeFirstCol>
-  </StyledGridMe>
+  </StyledGridMe> 
 </StyledBlockLayout>
 
    
@@ -165,20 +165,8 @@ function App() {
 
     <section>
     <StyledBlockLayout>
-
-      <StyledSubtitle>NFT Gallery</StyledSubtitle>
-      <StyledDescription>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt magna non, libero turpis sem vitae et. Natoque ut egestas sit volutpat etiam enim. Adipiscing rhoncus.</StyledDescription>
-
-      <StyledFlexRowCard>
-        {
-          listCard.map((card : IArticle) => (
-            <StyledFlexColumnCard>
-              <StyledImg key={card._uuid + 'card'} src = {card.pathImg} />
-              ${card.price}, ${card.title}, ${card.description}, linkToCard
-            </StyledFlexColumnCard>
-          ))
-        }
-      </StyledFlexRowCard>
+      <NftGallery listCards={listCard} />
+     
       </StyledBlockLayout>
 
     </section>
