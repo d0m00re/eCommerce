@@ -42,3 +42,12 @@ export const decrArt = (dispatch : Dispatch<any>, payload : IPayloadIncrDecr) =>
 export const show = (dispatch : Dispatch<any>) => dispatch(actionBasket.showBasket());
 export const close = (dispatch : Dispatch<any>) => dispatch(actionBasket.hideBasket());
 ```
+
+# good trick package
+react-tsparticles : beatiful animation but take too much ressource for small devices
+
+styled-component : see GenButton for moore information
+
+react-animate-on-scroll : use for fade in componant
+
+react-router-hash-link : dynamic scroll lib, nice lib

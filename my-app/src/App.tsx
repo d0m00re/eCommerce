@@ -2,11 +2,7 @@ import React, {useRef} from 'react';
 import './App.css';
 import useMouse from '@react-hook/mouse-position'
 
-import styled from "styled-components";
-import newTheme,
-{
-  StyledMain
-}
+import { StyledMain }
   from './Style/ThemeV2';
 
 import Main from './ComponentV2/Pages/Main/Main';
@@ -24,16 +20,13 @@ import HeaderBar from './ComponentV2/Molecules/HeaderBar/HeaderBar';
 import ModalBasket from './ComponentV2/Molecules/ModalBasket/ModalBasket';
 
 import Animation from './ComponentV2/Atoms/Animation/Animation';
-import { posix } from 'path';
-
-import ScrollAnimation from 'react-animate-on-scroll';
 
 
 function App() {
   const ref = useRef(null)
   const mouse : any = useMouse(ref, {
-      enterDelay: 42,
-      leaveDelay: 42,
+      enterDelay: 100,
+      leaveDelay: 100,
   });
 
 

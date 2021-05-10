@@ -9,11 +9,7 @@ import * as adtBasket from './../../../Redux/adapters/BasketAdapter';
 import {useDispatch} from 'react-redux';
 
 import {
-    StyledTitle, StyledNavBar,
-    StyledSubtitle,
-    StyledDescription,
-    StyledMain, StyledFlexRowCard, StyledFlexColumnCard, StyledButton, StyledCitation, StyledSmallTitle, StyledFlexRow,
-    StyledBlockLayout, StyledGridMe, StyledGridMeFirstCol
+    StyledTitle, StyledNavBar, StyledDescription, StyledSmallTitle, StyledFlexRow, StyledBlockLayout
 } from './../../../Style/ThemeV2';
 
 import GenButton from "./../../Atoms/GenButton/GenButton";
@@ -21,10 +17,6 @@ import GenButton from "./../../Atoms/GenButton/GenButton";
 import { useParams } from 'react-router';
 
 import ScrollAnimation from 'react-animate-on-scroll';
-
-
-interface Props {
-}
 
 
 const StyledProductLayout = styled.div` 
@@ -55,6 +47,10 @@ const StyledImg = styled.img`
     height : 438px;
 `;
 
+const StyledProductContainer = styled.div ` 
+    padding-top : 150px;
+`;
+
 function Product(): ReactElement {
     const params: Partial<{ uuid: string }> = useParams();
     const [art, setArt] = useState<IArticle>();
@@ -81,7 +77,7 @@ function Product(): ReactElement {
   let dispatch = useDispatch();
 
     return (
-        <>
+        <StyledProductContainer>
             {art?._uuid && (
                 <StyledBlockLayout>
                     <StyledProductLayout  style={{marginBottom : '300px'}}>
@@ -103,9 +99,10 @@ function Product(): ReactElement {
                                 Lorem ipsum dolor sit ametdolo, consectetur adipiscing eli.
                             </StyledDescription>
                             <StyledSmallTitle>
-                                {art?.price}
+                                $ {art?.price} USD
                     </StyledSmallTitle>
                             <GenButton onClick={() => {adtBasket.addArt(dispatch, {article : art ,count : 1});}} text='Add to cart' size='big' />
+                            <div style = {{paddingBottom : '18px'}}></div>
                             <GenButton text='Place bid on rarible' size='big' />
 
                         </StyledInformation>
@@ -113,7 +110,7 @@ function Product(): ReactElement {
 
                     </StyledProductLayout>
                 </StyledBlockLayout>)}
-        </>
+        </StyledProductContainer>
     );
 }
 
