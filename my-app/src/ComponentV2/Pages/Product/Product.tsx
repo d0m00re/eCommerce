@@ -20,6 +20,9 @@ import GenButton from "./../../Atoms/GenButton/GenButton";
 
 import { useParams } from 'react-router';
 
+import ScrollAnimation from 'react-animate-on-scroll';
+
+
 interface Props {
 }
 
@@ -81,27 +84,33 @@ function Product(): ReactElement {
         <>
             {art?._uuid && (
                 <StyledBlockLayout>
-                    <StyledProductLayout>
+                    <StyledProductLayout  style={{marginBottom : '300px'}}>
 
                         <StyledImgContainer>
-                           <StyledImg src={art?.pathImg} />
-                        </StyledImgContainer>
+                        <ScrollAnimation animateIn="fadeIn" duration = {2}>
 
+                           <StyledImg src={art?.pathImg} />
+                        </ScrollAnimation>
+                        </StyledImgContainer>
+                    
+                        <ScrollAnimation animateIn="fadeIn" duration = {4}>
 
                         <StyledInformation>
                             <StyledTitle>
-                                Crystal card 1
+                                {art?.title}
                             </StyledTitle>
                             <StyledDescription>
                                 Lorem ipsum dolor sit ametdolo, consectetur adipiscing eli.
                             </StyledDescription>
                             <StyledSmallTitle>
-                                2500
+                                {art?.price}
                     </StyledSmallTitle>
                             <GenButton onClick={() => {adtBasket.addArt(dispatch, {article : art ,count : 1});}} text='Add to cart' size='big' />
                             <GenButton text='Place bid on rarible' size='big' />
 
                         </StyledInformation>
+                        </ScrollAnimation>
+
                     </StyledProductLayout>
                 </StyledBlockLayout>)}
         </>

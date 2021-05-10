@@ -41,6 +41,10 @@ const StyledCard = styled.div`
 
     transition: background-color 1.0s ease;
 
+    &:hover {
+        transform : scale(1.6);
+        transition: transform 350ms ease, -webkit-transform 350ms ease;
+    }
 `;
 
 const StyledCardHover = styled.div`

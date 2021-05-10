@@ -19,6 +19,13 @@ export const StyledButton = styled.div<IButtonProps>`
   background-image: linear-gradient(65deg, #edb8ff, #6148ff);
   box-shadow: 0 24px 34px 0 rgba(74, 58, 255, 0.05), 0 9px 24px 0 rgba(0, 0, 0, 0.45);
 
+  transition: transform 350ms ease, -webkit-transform 350ms ease;
+
+  &:hover {
+        transform : scale(0.94);
+        transition: transform 350ms ease, -webkit-transform 350ms ease;
+    }
+
   & > a {
     display : inline-block;
 

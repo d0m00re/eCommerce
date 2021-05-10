@@ -23,6 +23,7 @@ import NftGallery from './../../../ComponentV2/Molecules/NftGalery/NftGallery';
 
 import GenButton from './../../Atoms/GenButton/GenButton';
 
+import ScrollAnimation from 'react-animate-on-scroll';
 
 export const StyledLogo = styled.div ` 
   & > a {
@@ -45,7 +46,7 @@ function Description () {
     </StyledDescription>
   );
 }
-
+ 
 
 
 
@@ -59,7 +60,9 @@ const StyledList = styled.ul `
 function Main() {
   return (
     <StyledMain>
-        <section>
+          <ScrollAnimation animateIn="fadeIn">
+
+        <section style={{paddingTop : '150px'}}>
             <StyledBlockLayout>
                 <StyledGridMe>
                     <StyledGridMeFirstCol>
@@ -70,7 +73,9 @@ function Main() {
                 </StyledGridMe> 
             </StyledBlockLayout>
         </section>
-      
+        </ScrollAnimation>
+
+      {/*}
         <section>
             <StyledBlockLayout>
                 <StyledSubtitle>About me</StyledSubtitle>
@@ -82,13 +87,15 @@ function Main() {
                 <GenButton text='Hire Me' href='#contact' size='big' />
             </StyledBlockLayout>
         </section>
-
+    */}
+    <ScrollAnimation animateIn="fadeIn">
         <section>
         <StyledBlockLayout>
             <NftGallery listCards={listCard} />
        </StyledBlockLayout>
 
     </section>
+    </ScrollAnimation>
 
   <section>
   <StyledBlockLayout>
@@ -98,6 +105,7 @@ function Main() {
 
   </section>
 
+{/*}
   <section>
   <StyledBlockLayout>
 
@@ -105,7 +113,7 @@ function Main() {
     </StyledBlockLayout>
 
   </section>
-
+  */}
   <footer>
     Copyright © NFT | Designed by BRIX Templates - Powered by Webflow
   </footer>

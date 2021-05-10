@@ -182,7 +182,7 @@ export const StyledBlockLayout = styled.div`
 export const StyledGridMe = styled.div` 
     display : grid;
     grid-auto-columns: 1fr;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     -ms-grid-rows: auto auto;
     grid-template-rows: auto auto;
     grid-row-gap: 16px;

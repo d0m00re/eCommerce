@@ -11,6 +11,9 @@ import IWork from './../../../Types/IMyWork';
 
 import styled from "styled-components";
 
+import ScrollAnimation from 'react-animate-on-scroll';
+
+
 const StyledWorkCard = styled.div ` 
 padding: 72px 56px;
 border-radius: 50px;
@@ -50,7 +53,8 @@ interface Props {
 
 function MyWork({listMyWorks}: Props): ReactElement {
     return (
-        <div>
+        <div style={{paddingTop:'480px'}}>
+            <ScrollAnimation animateIn="fadeIn">
             <FlexboxRowSpaceB>
               <StyledSubtitle>My Work</StyledSubtitle>
              <StyledMyWorkCitation>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt magna non, libero turpis sem vitae et</StyledMyWorkCitation>
@@ -65,6 +69,7 @@ function MyWork({listMyWorks}: Props): ReactElement {
                     )))
                 }
             </StyledMyWork>
+            </ScrollAnimation>
         </div>
     )
 }

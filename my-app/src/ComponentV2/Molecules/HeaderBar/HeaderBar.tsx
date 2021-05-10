@@ -17,7 +17,13 @@ import IReducerBasket from './../../../Types/IReducerBasket';
 import * as apiBasket from './../../../Redux/adapters/BasketAdapter';
 
 const StyledLogo = styled.div` 
+    transition: transform 350ms ease, -webkit-transform 350ms ease;
+    &:hover {
+        transform : scale(0.94);
+        transition: transform 350ms ease, -webkit-transform 350ms ease;
+    }
   & > a {
+    
     & > img {
       width : 130px;
     }

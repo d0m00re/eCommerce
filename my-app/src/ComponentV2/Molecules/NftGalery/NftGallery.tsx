@@ -22,11 +22,19 @@ import LinkNft from './../../Atoms/LinkNft/LinkNft';
 
 const StyledImgLink = styled.a ` 
     margin-bottom : 48px;
+
+   
 `;
 
 const StyledImg = styled.img`
  display : inline-block;
  max-width : 100%;
+ transition: transform 350ms ease, -webkit-transform 350ms ease;
+
+&:hover {
+    transform : scale(1.06);
+    transition: transform 350ms ease, -webkit-transform 350ms ease;
+}
 `;
 
 const StyledMyBlockLayout = styled(StyledBlockLayout) ` 
