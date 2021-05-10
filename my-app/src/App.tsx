@@ -2,21 +2,16 @@ import React from 'react';
 import './App.css';
 
 import styled from "styled-components";
-import theme from './Style/Theme';
+import newTheme,
+{StyledTitle,
+  StyledSubtitle,
+  StyledDescription,
+  StyledMain, StyledFlexRowCard, StyledFlexColumnCard, StyledButton}
+from './Style/ThemeV2';
 
 import listCard from './Data/cards';
 
-let newTheme = {
-  root : {
-    backgroundColor : '#0f0823'
-  },
-  h1 : {
-    color : '#fff',
-  },
-  text : {
-    color : 'rgb(190, 189, 212)'
-  }
-};
+import {IArticle} from './Types/IArticle';
 
 
 
@@ -37,23 +32,24 @@ function NavBar() {
 
 interface IGenButtonProps {
   text : string;
+  href ?: string;
+  size ?: 'small' | 'medium' | 'big';
 }
 
-function GenButton ({text} : IGenButtonProps) {
+
+
+function GenButton ({text, href = '', size = 'small'} : IGenButtonProps) {
   return ( 
-   <div>{text}</div>
+   <StyledButton>
+     <a  href={href}>{text}</a>
+   </StyledButton>
   );
 }
 
+// style={{backgroundColor : newTheme.root.backgroundColor}}
 
-const StyledTitle = styled.h1 ` 
-  color : ${newTheme.h1.color};
-  margin-top : 0px;
-  margin-bottom : 24px;
-  font-size : 100px;
-  line-height : 105px;
-  font-weight : 700;
-`;
+
+
 
 function Title () {
   return (
@@ -61,9 +57,9 @@ function Title () {
   );
 }
 
-const StyledDescription = styled.p ` 
-  color : ${newTheme.text.color};
-`;
+
+
+
 
 function Description () {
   return (
@@ -73,38 +69,64 @@ function Description () {
   );
 }
 
+const StyledImg = styled.img`
 
+`;
+
+
+const StyledList = styled.ul ` 
+  color : ${newTheme.ul.color};
+`;
+
+// 
 function App() {
   return (
-    <>
-    <section style={{backgroundColor : newTheme.root.backgroundColor}}>
+    <StyledMain>
+    <section>
       <NavBar />
-      <GenButton text='Browse Gallerie' />
+      <GenButton text='Browse Gallerie' href='#gallerie' size='medium' />
       <Title />
       <Description />
-      <GenButton text='Browse Gallerie' />
+      <GenButton text='Browse Gallerie' href='#gallerie' size='big' />
     </section>
       
     <section>
-     <StyledTitle>About me</StyledTitle>
+     <StyledSubtitle>About me</StyledSubtitle>
+     <StyledDescription>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt magna non, libero turpis sem vitae et. Natoque ut egestas sit volutpat.</StyledDescription>
+     <StyledList>
+        <li> Illustration Artist</li>
+        <li> 3D Modeler</li>
+     </StyledList>
+     <GenButton text='Hire Me' href='#contact' size='big' />
+
     </section>
 
     <section>
-      <StyledTitle>NFT Gallery</StyledTitle>
+      <StyledSubtitle>NFT Gallery</StyledSubtitle>
+      <StyledFlexRowCard>
+        {
+          listCard.map((card : IArticle) => (
+            <StyledFlexColumnCard>
+              <StyledImg key={card._uuid + 'card'} src = {card.pathImg} />
+              ${card.price}, ${card.title}, ${card.description}, linkToCard
+            </StyledFlexColumnCard>
+          ))
+        }
+      </StyledFlexRowCard>
     </section>
 
   <section>
-    <StyledTitle>My Work</StyledTitle>
+    <StyledSubtitle>My Work</StyledSubtitle>
   </section>
 
   <section>
-    <StyledTitle>Let's get in touch today</StyledTitle>
+    <StyledSubtitle>Let's get in touch today</StyledSubtitle>
   </section>
 
   <footer>
   Copyright © NFT | Designed by BRIX Templates - Powered by Webflow
   </footer>
-    </>
+    </StyledMain>
   );
 }
 
