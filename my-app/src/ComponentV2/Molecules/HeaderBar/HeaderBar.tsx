@@ -1,15 +1,13 @@
 import React, { ReactElement } from 'react'
 
 import styled from "styled-components";
-import newTheme, { StyledNavBar, StyledFlexRow, StyledBlockLayout}
+import { StyledNavBar, StyledFlexRow, StyledBlockLayout}
     from './../../../Style/ThemeV2';
 
-import { logo } from './../../../Data/card/index';
 
 import {useSelector, useDispatch} from 'react-redux';
 
 import GenButton from './../../Atoms/GenButton/GenButton';
-import BasketReducer from '../../../Redux/reducers/Basket';
 
 import IReducerBasket from './../../../Types/IReducerBasket';
 
@@ -18,19 +16,8 @@ import * as apiBasket from './../../../Redux/adapters/BasketAdapter';
 
 import { HashLink } from 'react-router-hash-link';
 
-const StyledLogo = styled.div` 
-    transition: transform 350ms ease, -webkit-transform 350ms ease;
-    &:hover {
-        transform : scale(0.94);
-        transition: transform 350ms ease, -webkit-transform 350ms ease;
-    }
-  & > a {
-    
-    & > img {
-      width : 130px;
-    }
-  } 
-`;
+import Logo from './../../Atoms/Logo/Logo';
+
 
 const StyleFlexboxSpaceEvenly = styled(StyledFlexRow) ` 
     justify-content : space-between;
@@ -49,15 +36,7 @@ interface Props {
 const StyledButtonContainer = styled.div ` 
 `;
 
-function Logo() {
-    return (
-        <StyledLogo>
-            <a>
-                <img src={logo} />
-            </a>
-        </StyledLogo>
-    )
-}
+
 
 function NavBar({count} : {count : number}) {
     const dispatch = useDispatch();
@@ -95,7 +74,7 @@ function totalArt(basket : IReducerBasket) {
         tot += basket.articlesList[i].count;
     }
     return tot;
-}
+} 
 
 function HeaderBar({ }: Props): ReactElement {
     const basket: IReducerBasket = useSelector((state: { basket: IReducerBasket }) => state.basket);
