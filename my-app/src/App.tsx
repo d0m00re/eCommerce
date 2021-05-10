@@ -11,12 +11,14 @@ import newTheme,
 from './Style/ThemeV2';
 
 import listCard from './Data/cards';
-import listMyWork from './Data/myWork';
+import listMyWorks from './Data/myWork';
 
 import {IArticle} from './Types/IArticle';
 import IWork from './Types/IMyWork';
 
 import {logo} from './Data/card/index';
+
+import MyWork from './ComponentV2/Molecules/MyWork/MyWork';
 
 export const StyledLogo = styled.div ` 
   & > a {
@@ -148,6 +150,8 @@ function App() {
     </section>
       
     <section>
+    <StyledBlockLayout>
+
      <StyledSubtitle>About me</StyledSubtitle>
      <StyledDescription>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt magna non, libero turpis sem vitae et. Natoque ut egestas sit volutpat.</StyledDescription>
      <StyledList>
@@ -155,10 +159,13 @@ function App() {
         <li> 3D Modeler</li>
      </StyledList>
      <GenButton text='Hire Me' href='#contact' size='big' />
+     </StyledBlockLayout>
 
     </section>
 
     <section>
+    <StyledBlockLayout>
+
       <StyledSubtitle>NFT Gallery</StyledSubtitle>
       <StyledDescription>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt magna non, libero turpis sem vitae et. Natoque ut egestas sit volutpat etiam enim. Adipiscing rhoncus.</StyledDescription>
 
@@ -172,30 +179,28 @@ function App() {
           ))
         }
       </StyledFlexRowCard>
+      </StyledBlockLayout>
+
     </section>
 
   <section>
-    <StyledSubtitle>My Work</StyledSubtitle>
-    <StyledCitation>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt magna non, libero turpis sem vitae et</StyledCitation>
-    <> 
-        {
-          listMyWork.map(((myW : IWork) => (
-            <>
-              <StyledSmallTitle>{myW.title}</StyledSmallTitle>
-              <StyledDescription>{myW.desc}</StyledDescription>
+  <StyledBlockLayout>
 
-            </>
-          )))
-        }
-    </>
+    <MyWork listMyWorks={listMyWorks} />
+    </StyledBlockLayout>
+
   </section>
 
   <section>
+  <StyledBlockLayout>
+
     <StyledSubtitle>Let's get in touch today</StyledSubtitle>
+    </StyledBlockLayout>
+
   </section>
 
   <footer>
-  Copyright © NFT | Designed by BRIX Templates - Powered by Webflow
+    Copyright © NFT | Designed by BRIX Templates - Powered by Webflow
   </footer>
     </StyledMain>
   );

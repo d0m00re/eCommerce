@@ -179,6 +179,40 @@ export const StyledGridMeFirstCol = styled.div`
     opacity: 1;
 `;
 
+// About ME
 
+
+export const StyledAboutMe = styled.div` 
+    display : grid;
+    grid-auto-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: auto auto;
+    grid-template-rows: auto auto;
+    grid-row-gap: 16px;
+    grid-column-gap: 16px;
+`;
+
+
+export const StyledNftGallery = styled.div` 
+    display : grid;
+    grid-auto-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: auto auto;
+    grid-template-rows: auto auto;
+    grid-row-gap: 16px;
+    grid-column-gap: 16px;
+`;
+
+
+
+export const StyledGetInTouch = styled.div` 
+    display : grid;
+    grid-auto-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: auto auto;
+    grid-template-rows: auto auto;
+    grid-row-gap: 16px;
+    grid-column-gap: 16px;
+`;
 
 export default Theme; 
