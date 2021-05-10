@@ -6,7 +6,8 @@ import newTheme,
 {StyledTitle, StyledNavBar,
   StyledSubtitle,
   StyledDescription,
-  StyledMain, StyledFlexRowCard, StyledFlexColumnCard, StyledButton, StyledCitation, StyledSmallTitle, StyledFlexRow}
+  StyledMain, StyledFlexRowCard, StyledFlexColumnCard, StyledButton, StyledCitation, StyledSmallTitle, StyledFlexRow,
+  StyledBlockLayout, StyledGridMe, StyledGridMeFirstCol}
 from './Style/ThemeV2';
 
 import listCard from './Data/cards';
@@ -131,9 +132,19 @@ function App() {
     <StyledMain>
     <section>
       <HeaderBar />
-      <Title />
-      <Description />
-      <GenButton text='Browse Gallerie' href='#gallerie' size='big' />
+
+<StyledBlockLayout>
+  <StyledGridMe>
+      <StyledGridMeFirstCol>
+        <Title />
+        <Description />
+        <GenButton text='Browse Gallerie' href='#gallerie' size='big' />
+      </StyledGridMeFirstCol>
+  </StyledGridMe>
+</StyledBlockLayout>
+
+   
+   
     </section>
       
     <section>

@@ -3,34 +3,34 @@ import styled from "styled-components";
 
 // Perso Theme
 let Theme = {
-    root : {
-      backgroundColor : '#0f0823'
+    root: {
+        backgroundColor: '#0f0823'
     },
-    h1 : {
-      color : '#fff',
+    h1: {
+        color: '#fff',
     },
-    h2 : {
-      color : '#fff',
+    h2: {
+        color: '#fff',
     },
-    h3 : {
-        color : '#fff'
+    h3: {
+        color: '#fff'
     },
-    text : {
-      color : 'rgb(190, 189, 212)'
+    text: {
+        color: 'rgb(190, 189, 212)'
     },
     button: {
-      color : '#fff',
-      backgroundColor : '#0f0823',
+        color: '#fff',
+        backgroundColor: '#0f0823',
     },
     ul: {
-      color : '#0f0823',
-      puceColor : '#8e20f1'
+        color: '#0f0823',
+        puceColor: '#8e20f1'
     },
-  };
+};
 
-  //-THEME
-  // MAIN TITLE
-export const StyledTitle = styled.h1 ` 
+//-THEME
+// MAIN TITLE
+export const StyledTitle = styled.h1` 
 color : ${Theme.h1.color};
 margin-top : 0px;
 margin-bottom : 24px;
@@ -40,7 +40,7 @@ font-weight : 700;
 `;
 
 // SUBTITLE
-export const StyledSubtitle = styled.h2 ` 
+export const StyledSubtitle = styled.h2` 
 margin-top : 0px;
 color : ${Theme.h2.color};
 font-size: 76px;
@@ -49,7 +49,7 @@ font-weight: 700;
 `;
 
 // small title
-export const StyledSmallTitle = styled.h3 ` 
+export const StyledSmallTitle = styled.h3` 
 margin-top: 0px;
 margin-bottom: 20px;
 color: ${Theme.h3.color};
@@ -59,7 +59,7 @@ font-weight: 700;
 `;
 
 // DESCRIPTION - medium text
-export const StyledDescription = styled.p ` 
+export const StyledDescription = styled.p` 
 color : ${Theme.text.color};
 font-size : 24px;
 line-height : 38px;
@@ -71,7 +71,7 @@ margin-top : 0;
 
 
 // CITATION - small text
-export const StyledCitation = styled.p `
+export const StyledCitation = styled.p`
 color : ${Theme.text.color};
 margin-bottom : 0px;
 margin-top: 0px;
@@ -80,35 +80,35 @@ margin-top: 0px;
 //------------------------------------------------------------------
 
 // BASIC FLEXBOX
-export const StyledFlexRow = styled.div ` 
+export const StyledFlexRow = styled.div` 
 display : flex;
 flex-direction : row;
 `;
 
-export const StyledFlexColumn = styled.div ` 
+export const StyledFlexColumn = styled.div` 
 display : flex;
 flex-direction : column;
 `;
 
 
 // SPECIFIC ELEM FLEXBOX
-export const StyledFlexRowCard = styled(StyledFlexRow) ` 
+export const StyledFlexRowCard = styled(StyledFlexRow)` 
 display : flex;
 flex-direction : row;
 `;
 
-export const StyledFlexColumnCard = styled(StyledFlexColumn) ` 
+export const StyledFlexColumnCard = styled(StyledFlexColumn)` 
 display : flex;
 flex-direction : column;
 `;
 
 // GENERAL LAYOUT STYLE 
 // MAIN STYLE
-export const StyledMain = styled.main ` 
+export const StyledMain = styled.main` 
 background-color : ${Theme.root.backgroundColor};
 `;
 
-export const StyledButton = styled.div ` 
+export const StyledButton = styled.div` 
   display : inline-block;
   padding : 3px;
   border-radius : 80px;
@@ -156,4 +156,29 @@ export const StyledNavBar = styled.nav`
     }
 `;
 
-export default Theme;
+export const StyledBlockLayout = styled.div` 
+    width : 100%;
+    max-width : 1244px;
+    padding-left : 24px;
+    padding-right : 24px;
+    margin-right: auto;
+    margin-left: auto;
+`;
+export const StyledGridMe = styled.div` 
+    display : grid;
+    grid-auto-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: auto auto;
+    grid-template-rows: auto auto;
+    grid-row-gap: 16px;
+    grid-column-gap: 16px;
+`;
+
+export const StyledGridMeFirstCol = styled.div` 
+    transform-style: preserve-3d;
+    opacity: 1;
+`;
+
+
+
+export default Theme; 
