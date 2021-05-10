@@ -4,9 +4,9 @@ const desc = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare
 
 const workList : IWork[] = [ 
     {title : 'Digital illustratyion', desc : desc},
-    {title : 'Digital illustratyion', desc : desc},
-    {title : 'Digital illustratyion', desc : desc},
-    {title : 'Digital illustratyion', desc : desc}
+    {title : '3D modeling', desc : desc},
+    {title : 'Motion graphics', desc : desc},
+    {title : 'Coding', desc : desc}
 ];
 
 export default workList;

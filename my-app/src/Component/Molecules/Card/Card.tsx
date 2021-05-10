@@ -61,7 +61,7 @@ const StyledCardHover = styled.div`
         transition: background-color 1.0s ease;
 
     }
-
+ 
 `;
 
 const StyledImg = styled.img`

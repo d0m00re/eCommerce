@@ -3,31 +3,66 @@ import './App.css';
 
 import styled from "styled-components";
 import newTheme,
-{StyledTitle,
+{StyledTitle, StyledNavBar,
   StyledSubtitle,
   StyledDescription,
-  StyledMain, StyledFlexRowCard, StyledFlexColumnCard, StyledButton}
+  StyledMain, StyledFlexRowCard, StyledFlexColumnCard, StyledButton, StyledCitation, StyledSmallTitle, StyledFlexRow}
 from './Style/ThemeV2';
 
 import listCard from './Data/cards';
+import listMyWork from './Data/myWork';
 
 import {IArticle} from './Types/IArticle';
+import IWork from './Types/IMyWork';
 
+import {logo} from './Data/card/index';
 
+export const StyledLogo = styled.div ` 
+  & > a {
+    & > img {
+      width : 130px;
+    }
+  }
+`;
+
+function Logo() {
+  return (
+    <StyledLogo>
+      <a>
+        <img src={logo}/>
+      </a>
+    </StyledLogo>
+  )
+}
 
 function NavBar() {
   return (
-    <nav> 
+    <StyledNavBar> 
       <ul>
-        <li>Card(X)</li>
-        <li>Home</li>
-        <li>About</li>
-        <li>Store</li>
-        <li>Work</li>
-        <li>Pages</li>
+        <li>
+            <a href='#Home'>Home</a>
+        </li>
+        <li>
+          <a href='#About'>About</a>
+        </li>
+        <li>
+          <a href='#Store'>Store</a>
+          </li>
+        <li>
+          <a href='#Work'>Work</a>
+          </li>
+        <li>
+          <a href='#Pages'>Pages</a>
+          </li>
       </ul>
-    </nav>
+    </StyledNavBar>
   );
+}
+
+function BasketSelector({count} : {count : number}) {
+  return (
+  <a>Cart{count}</a>
+  )
 }
 
 interface IGenButtonProps {
@@ -79,12 +114,23 @@ const StyledList = styled.ul `
 `;
 
 // 
+
+function HeaderBar () {
+return (
+  <StyledFlexRow>
+  <Logo />
+  <NavBar />
+  <BasketSelector count={5} />
+  <GenButton text='Browse Gallerie' href='#gallerie' size='medium' />
+  </StyledFlexRow>
+)
+}
+
 function App() {
   return (
     <StyledMain>
     <section>
-      <NavBar />
-      <GenButton text='Browse Gallerie' href='#gallerie' size='medium' />
+      <HeaderBar />
       <Title />
       <Description />
       <GenButton text='Browse Gallerie' href='#gallerie' size='big' />
@@ -103,6 +149,8 @@ function App() {
 
     <section>
       <StyledSubtitle>NFT Gallery</StyledSubtitle>
+      <StyledDescription>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt magna non, libero turpis sem vitae et. Natoque ut egestas sit volutpat etiam enim. Adipiscing rhoncus.</StyledDescription>
+
       <StyledFlexRowCard>
         {
           listCard.map((card : IArticle) => (
@@ -117,6 +165,18 @@ function App() {
 
   <section>
     <StyledSubtitle>My Work</StyledSubtitle>
+    <StyledCitation>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt magna non, libero turpis sem vitae et</StyledCitation>
+    <> 
+        {
+          listMyWork.map(((myW : IWork) => (
+            <>
+              <StyledSmallTitle>{myW.title}</StyledSmallTitle>
+              <StyledDescription>{myW.desc}</StyledDescription>
+
+            </>
+          )))
+        }
+    </>
   </section>
 
   <section>

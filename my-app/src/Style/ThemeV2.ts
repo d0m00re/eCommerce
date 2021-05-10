@@ -12,6 +12,9 @@ let Theme = {
     h2 : {
       color : '#fff',
     },
+    h3 : {
+        color : '#fff'
+    },
     text : {
       color : 'rgb(190, 189, 212)'
     },
@@ -42,6 +45,16 @@ margin-top : 0px;
 color : ${Theme.h2.color};
 font-size: 76px;
 line-height: 88px;
+font-weight: 700;
+`;
+
+// small title
+export const StyledSmallTitle = styled.h3 ` 
+margin-top: 0px;
+margin-bottom: 20px;
+color: ${Theme.h3.color};
+font-size: 36px;
+line-height: 38px;
 font-weight: 700;
 `;
 
@@ -117,6 +130,30 @@ line-height: 24px;
 font-weight: 700;
   }
 
+`;
+
+export const StyledNavBar = styled.nav` 
+    & > ul {
+        display : flex;
+        margin-bottom: 0px;
+        padding-left: 0px;
+        & > li {
+            margin-right: 24px;
+            margin-left: 24px;
+            list-style-type : none;
+            & > a {
+                transition: color 350ms ease;
+                line-height : 20px;
+                color : #fff;
+                background-color : transparent;
+                text-decoration : none;
+
+                &:hover {
+                    color : ${Theme.text.color};
+                }
+            }
+        }
+    }
 `;
 
 export default Theme;
