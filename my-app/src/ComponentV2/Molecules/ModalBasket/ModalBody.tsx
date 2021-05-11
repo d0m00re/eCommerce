@@ -31,9 +31,24 @@ let StyledBodyContainer = styled.div`
     flex-basis : 0%;
 `;
 
-let StyledImg = styled.img` 
+let StyledCtnImg = styled.div ` 
     width : 60px;
-    height : 80px;
+    height : 60px;
+    background-color : #201933;
+    border : solid 1px;
+    border-radius : 10px;
+    border-color : #4e4b66;
+
+    display : flex;
+    align-items : center;
+    justify-content : center;
+`;
+
+let StyledImg = styled.img` 
+    width : 30px;
+    height : 40px;
+
+
 
     border-style: solid;
     border-width: 1px;
@@ -65,17 +80,31 @@ let StyledTitle = styled.div`
 margin-bottom: 7px;
 color: #fff;
 font-weight: 700;
+padding-top : 6px;
 `;
 
 let StyledText = styled.div` 
-color: #bebdd4;
-font-size: 18px;
-line-height: 30px;
-font-weight: 400;
+    color: #bebdd4;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 400;
 `;
 
 let StyledRemove = styled.div` 
+    margin-top : 12px;
+    color : #fff;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 400;
+    transition: color 350ms ease, -webkit-transform 350ms ease;
+    cursor : pointer;
 
+
+
+    &:hover {
+        color : grey;
+        transition: transform 350ms ease, -webkit-transform 350ms ease;
+    }
 `;
 
 function ModalBody({ basket }: Props): ReactElement {
@@ -88,12 +117,14 @@ function ModalBody({ basket }: Props): ReactElement {
                     basket.articlesList?.length > 0 &&
                     basket.articlesList.map((_card: IArticleBasket) =>
                         <StyledBodyCard>
-                            <StyledImg src={_card.article.pathImg} />
+                            <StyledCtnImg>
+                                <StyledImg src={_card.article.pathImg} />
+                            </StyledCtnImg>
                             <StyledCard>
                                 <StyledTitle>{_card.article.title}</StyledTitle>
                                 <StyledText>$ {_card.article.price}/u USD</StyledText>
                                 <StyledText>Quantity : {_card.count}</StyledText>
-                                <StyledRemove onClick={() => { basketAdp.deleteArt(dispatch, { uuid: _card.article._uuid }) }}>remove</StyledRemove>
+                                <StyledRemove onClick={() => { basketAdp.deleteArt(dispatch, { uuid: _card.article._uuid }) }}>Remove</StyledRemove>
                             </StyledCard>
                         </StyledBodyCard>
                     )
