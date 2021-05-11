@@ -8,15 +8,28 @@ interface Props {
 
 }
 
+/*
+display : flex;
+       flex-direction : row;
+       justify-content : space-aroud;
+*/
 let StyledBottom = styled.div` 
         display : flex;
         flex-direction : column;
-    & > div {
-       display : flex;
-       flex-direction : row;
-       justify-content : space-aroud;
-    }
+        padding : 24px 32px;
+
+        border-top-style : solid;
+        border-top-width : 1px;
+        border-top-color: #e6e6e6;
 `;
+
+let StyledCtnText = styled.div ` 
+    display : flex; 
+    justify-content : space-between;   
+    flex-direction : row;
+
+    margin-bottom : 16px;
+`
 
 let StyledText = styled.div` 
 color: #bebdd4;
@@ -25,15 +38,22 @@ line-height: 30px;
 font-weight: 400;
 `;
 
+let StyledText2 = styled.div` 
+color: #fff;
+font-size: 18px;
+line-height: 30px;
+font-weight: 700;
+`;
+
 function ModalBottom({ totalPrice }: Props): ReactElement {
     return (
 
         <StyledBottom>
-            <div>
+            <StyledCtnText>
                 <StyledText>Subtotal</StyledText>
-                <StyledText>${totalPrice}</StyledText>
-            </div>
-            <GenButton size='big' href='/' onClick={() => { }} text='Continue To Checkout' />
+                <StyledText2>${totalPrice} USD</StyledText2>
+            </StyledCtnText>
+            <GenButton size='small' href='/' onClick={() => { }} text='Continue To Checkout' />
         </StyledBottom>
     )
 };

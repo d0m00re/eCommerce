@@ -63,7 +63,7 @@ font-size: 22px;
 line-height: 28px;
  margin : 0;
 padding : 0;
-color : '#fff';
+color : #fff;
 font-weight : 700;
 `;
 

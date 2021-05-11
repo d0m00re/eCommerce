@@ -46,6 +46,9 @@ export const StyledButton = styled.div<IButtonProps>`
 
 
       font-weight: 700;
+
+      width : 100%;
+      text-align : center;
   }
 
 `;

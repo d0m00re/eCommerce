@@ -31,13 +31,19 @@ let StyledHeader = styled.div`
     align-items: center;
 `;
 
+let StyledButtonCross = styled.div ` 
+    cursor : pointer;
+    color : #fff;
+    font-size : 30px;
+`;
+
 function ModalBasket({ }: Props): ReactElement {
     const dispatch = useDispatch();
 
     return (
         <StyledHeader>
             <StyledVerySmallTitle>Your Cart</StyledVerySmallTitle>
-            <button onClick={() => basketAdp.close(dispatch)}>x</button>
+            <StyledButtonCross onClick={() => basketAdp.close(dispatch)}>x</StyledButtonCross>
         </StyledHeader>
 
     )

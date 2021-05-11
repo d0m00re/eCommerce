@@ -60,7 +60,7 @@ function NavBar({count} : {count : number}) {
                     <HashLink smooth to="/page#pages">Pages</HashLink>
                 </li>
                 <li onClick={() => {apiBasket.show(dispatch)}}>
-                    <a>Card({count})</a>
+                    <a style={{cursor : 'pointer'}}>Card({count})</a>
                 </li>
             </ul>
         </StyledNavBar>
